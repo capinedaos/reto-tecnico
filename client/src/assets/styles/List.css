@@ -1,0 +1,17 @@
+.container-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card:hover {
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f0e68c;
+}
+
+.card {
+  transition: 0.5s;
+}
+
+.card-body button {
+  margin: 10px;
+}
