@@ -35,16 +35,6 @@ export const getShipThunk = () => (dispatch) => {
     .finally(() => dispatch(setIsLoading(false)));
 };
 
-export const getShipByIdThunk = (id) => (dispatch) => {
-  dispatch(setIsLoading(true));
-  return axios
-    .get(`http://localhost:4000/api/v1/ship-management/ship/${id}`)
-    .then((res) => {
-      dispatch(setShip(res.data.ship));
-    })
-    .finally(() => dispatch(setIsLoading(false)));
-};
-
 export const updateShipThunk = (data, id) => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios

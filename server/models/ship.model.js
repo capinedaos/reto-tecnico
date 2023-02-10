@@ -16,31 +16,12 @@ const Ship = db.define("ship", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  weight: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
+
   fuelType: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  power: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  autonomy: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   startDate: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  finalDate: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  height: {
     type: DataTypes.STRING,
     allowNull: false,
   },

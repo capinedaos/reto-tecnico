@@ -4,7 +4,6 @@ const express = require("express");
 const {
   getAllShips,
   createShip,
-  getShipById,
   updateShip,
   deleteShip,
 } = require("../controllers/ships.controller");
@@ -15,7 +14,6 @@ const shipsRouter = express.Router();
 
 shipsRouter.post("/", createShip);
 shipsRouter.get("/", getAllShips);
-shipsRouter.get("/:id", shipExists, getShipById);
 shipsRouter.patch("/:id", shipExists, updateShip);
 shipsRouter.delete("/:id", shipExists, deleteShip);
 

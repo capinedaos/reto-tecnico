@@ -6,3 +6,4 @@ export { default as ModalInformation } from "./ModalInformation";
 export { default as ModalDelete } from "./ModalDelete";
 export { default as ButtonReturn } from "./ButtonReturn";
 export { default as ListingByType } from "./ListingByType";
+export { default as Footer } from "./Footer";

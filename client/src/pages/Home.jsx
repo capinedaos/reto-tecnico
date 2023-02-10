@@ -18,8 +18,6 @@ const Home = () => {
   return (
     <div>
       <div className="container">
-      
-
         <div>
           <button
             type="button"
@@ -35,6 +33,14 @@ const Home = () => {
             <i className="bi bi-plus-circle"></i>
           </button>
         </div>
+        <a
+          href={
+            "https://moaramore.com/2016/05/14/clasificacion-de-las-naves-espaciales/"
+          }
+          target="_blank"
+        >
+          <p className="m-1 fs-6">Clasificación de las naves espaciales</p>
+        </a>
 
         <Form
           className={"modal fade"}
@@ -56,17 +62,17 @@ const Home = () => {
           <div className="col-auto">
             <Link to={"/manned-ship"}>
               <button type="button" className="btn btn-outline-primary btn-lg">
-                Vehiculos tripulados
+                Naves tripuladas
               </button>
             </Link>
             <Link to={"/unmanned-ship"}>
               <button type="button" className="btn btn-outline-primary btn-lg">
-                Vehiculos no tripulados
+                Naves no tripuladas
               </button>
             </Link>
             <Link to={"/shuttle-ship"}>
               <button type="button" className="btn btn-outline-primary btn-lg">
-                Vehiculos lanzadera
+                Naves lanzadera
               </button>
             </Link>
           </div>

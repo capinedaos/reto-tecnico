@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import ModalDelete from "./ModalDelete";
-import { createShipThunk } from "../app/ship.slice";
 import "../assets/styles/List.css";
 
 const List = ({ setTitleModal, selectShip, setTextButton }) => {
@@ -68,19 +67,15 @@ const List = ({ setTitleModal, selectShip, setTextButton }) => {
                 <div className="card m-2" style={{ width: "16rem" }}>
                   <div className="card-body">
                     <h5 className="card-title">Nombre: {ship.name} </h5>
-                    <p className="card-text">Fecha inicio: {ship.startDate} </p>
-                    <p className="card-text">Fecha fin: {ship.finalDate} </p>
+                    <p className="card-text">Tipo de nave: {ship.typeShip} </p>
                     <p className="card-text">
                       Tipo de combustible: {ship.fuelType}{" "}
                     </p>
+                    <p className="card-text">Fecha inicio: {ship.startDate} </p>
                     <p className="card-text">
                       Pais:
                       {ship.country}{" "}
                     </p>
-                    {/* <p className="card-text">Peso: {ship.weight} </p>
-                    <p className="card-text">Potencia: {ship.power} </p>
-                    <p className="card-text">Autonomia:{ship.autonomy} </p>
-                    <p className="card-text">Altura: {ship.height}</p> */}
 
                     <button
                       onClick={() => {

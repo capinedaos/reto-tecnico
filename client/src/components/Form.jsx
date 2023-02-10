@@ -19,13 +19,8 @@ const Form = ({
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [typeShip, setTypeShip] = useState("");
-  const [weight, setWeight] = useState("");
   const [fuelType, setFuelType] = useState("");
-  const [power, setPower] = useState("");
-  const [autonomy, setAutonomy] = useState("");
   const [startDate, setStartDate] = useState("");
-  const [finalDate, setFinalDate] = useState("");
-  const [height, setHeight] = useState("");
   const [country, setCountry] = useState("");
   const [information, setInformation] = useState("");
 
@@ -35,24 +30,14 @@ const Form = ({
     if (shipSelected !== null) {
       setName(shipSelected.name);
       setTypeShip(shipSelected.typeShip);
-      setWeight(shipSelected.weight);
       setFuelType(shipSelected.fuelType);
-      setPower(shipSelected.power);
-      setAutonomy(shipSelected.autonomy);
       setStartDate(moment(shipSelected.startDate).format("YYYY-MM-DD"));
-      setFinalDate(moment(shipSelected.finalDate).format("YYYY-MM-DD"));
-      setHeight(shipSelected.height);
       setCountry(shipSelected.country);
     } else {
       setName("");
       setTypeShip("");
-      setWeight("");
       setFuelType("");
-      setPower("");
-      setAutonomy("");
       setStartDate("");
-      setFinalDate("");
-      setHeight("");
       setCountry("");
     }
   }, [shipSelected]);
@@ -63,33 +48,24 @@ const Form = ({
     const ship = {
       name,
       typeShip,
-      weight,
       fuelType,
-      power,
-      autonomy,
       startDate,
-      finalDate,
-      height,
       country,
     };
 
-    if (new Date(startDate).getTime() > new Date(finalDate).getTime()) {
-      alert("Fecha invalida");
+    // editar
+    if (shipSelected !== null) {
+      dispatch(updateShipThunk(ship, shipSelected.id));
+      deselectShip();
+      setInformation("Informacion modificada");
+      deselectShip();
     } else {
-      // editar
-      if (shipSelected !== null) {
-        dispatch(updateShipThunk(ship, shipSelected.id));
-        deselectShip();
-        setInformation("Informacion modificada");
-        deselectShip();
-      } else {
-        // crear
-        deselectShip();
-        dispatch(createShipThunk(ship));
-        setInformation("Registro creado");
-        e.target.reset();
-        deselectShip();
-      }
+      // crear
+      deselectShip();
+      dispatch(createShipThunk(ship));
+      setInformation("Registro creado");
+      e.target.reset();
+      deselectShip();
     }
   };
 
@@ -163,25 +139,6 @@ const Form = ({
                 <div className="invalid-feedback">Campo obligatorio</div>
               </div>
               <div className="mb-3">
-                <label htmlFor="weight" className="form-label">
-                  Peso
-                </label>
-                <input
-                  type="text"
-                  id="weight"
-                  onChange={(e) => setWeight(e.target.value)}
-                  value={weight || ""}
-                  placeholder="Ingresa el peso"
-                  className="form-control"
-                  required
-                />
-                <div className="valid-feedback">
-                  Campo ingresado correctamente
-                </div>
-                <div className="invalid-feedback">Campo obligatorio</div>
-              </div>
-
-              <div className="mb-3">
                 <label htmlFor="fuelType" className="form-label">
                   Combustible
                 </label>
@@ -199,45 +156,6 @@ const Form = ({
                 </div>
                 <div className="invalid-feedback">Campo obligatorio</div>
               </div>
-
-              <div className="mb-3">
-                <label htmlFor="power" className="form-label">
-                  Potencia
-                </label>
-                <input
-                  type="text"
-                  id="power"
-                  onChange={(e) => setPower(e.target.value)}
-                  value={power || ""}
-                  placeholder="Ingresa la potencia"
-                  className="form-control"
-                  required
-                />
-                <div className="valid-feedback">
-                  Campo ingresado correctamente
-                </div>
-                <div className="invalid-feedback">Campo obligatorio</div>
-              </div>
-
-              <div className="mb-3">
-                <label htmlFor="autonomy" className="form-label">
-                  Autonomia
-                </label>
-                <input
-                  type="text"
-                  id="autonomy"
-                  onChange={(e) => setAutonomy(e.target.value)}
-                  value={autonomy || ""}
-                  placeholder="Ingresa la autonomia"
-                  className="form-control"
-                  required
-                />
-                <div className="valid-feedback">
-                  Campo ingresado correctamente
-                </div>
-                <div className="invalid-feedback">Campo obligatorio</div>
-              </div>
-
               <div className="mb-3">
                 <label htmlFor="startDate" className="form-label">
                   Fecha inicio
@@ -255,44 +173,6 @@ const Form = ({
                 </div>
                 <div className="invalid-feedback">Campo obligatorio</div>
               </div>
-
-              <div className="mb-3">
-                <label htmlFor="finalDate" className="form-label">
-                  Fecha fin
-                </label>
-                <input
-                  type="date"
-                  id="finalDate"
-                  onChange={(e) => setFinalDate(e.target.value)}
-                  value={finalDate || ""}
-                  className="form-control"
-                  required
-                />
-                <div className="valid-feedback">
-                  Campo ingresado correctamente
-                </div>
-                <div className="invalid-feedback">Campo obligatorio</div>
-              </div>
-
-              <div className="mb-3">
-                <label htmlFor="height" className="form-label">
-                  Altura
-                </label>
-                <input
-                  type="text"
-                  id="height"
-                  onChange={(e) => setHeight(e.target.value)}
-                  value={height || ""}
-                  placeholder="Ingresa la altura"
-                  className="form-control"
-                  required
-                />
-                <div className="valid-feedback">
-                  Campo ingresado correctamente
-                </div>
-                <div className="invalid-feedback">Campo obligatorio</div>
-              </div>
-
               <div className="mb-3">
                 <label htmlFor="country" className="form-label">
                   Pais

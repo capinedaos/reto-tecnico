@@ -23,7 +23,7 @@ const ShuttleShip = () => {
 
   return (
     <div className="container">
-      <h1>Vehiculos lanzadera</h1>
+      <h1>Naves lanzadera</h1>
       <ButtonReturn route={"/"} />
       <ListingByType list={shuttleShip} />
     </div>
